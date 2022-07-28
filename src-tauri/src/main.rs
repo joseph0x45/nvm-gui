@@ -4,16 +4,19 @@
 )]
 use std::process::Command;
 
-fn main() {
-  tauri::Builder::default()
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
-}
-
-
-fn executeCommand(command: &str) -> String {
+#[tauri::command]
+fn execute_command(command: &str) -> String {
   let output = Command::new(command)
+    .arg("list")
     .output()
     .expect("failed to execute process");
   return String::from_utf8_lossy(&output.stdout).to_string();
 }
+
+fn main() {
+  tauri::Builder::default()
+    .invoke_handler(tauri::generate_handler![execute_command])
+    .run(tauri::generate_context!())
+    .expect("error while running tauri application");
+}
+
