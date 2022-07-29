@@ -9,6 +9,10 @@ export const versions = [
     },
     {
         version:"16.18.0",
-        is_current: true
+        is_current: false
+    },
+    {
+        version:"16.16.0",
+        is_current: false
     }
 ]
