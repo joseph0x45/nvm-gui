@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import Welcome from './components/welcome'
 import { invoke } from '@tauri-apps/api/tauri'
 import VersionTile from './components/version_tile'
 
@@ -11,8 +11,8 @@ function App() {
     
   }
   return (
-    <div className=' text-green-700 bg-fuchsia-400' onClick={run} >
-      bruh <br />
+    <div className=''  >
+      <Welcome />
       <VersionTile/>
     </div>
   )
