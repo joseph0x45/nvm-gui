@@ -1,4 +1,4 @@
-export default function VersionTile(){
+export default function VersionTile(props: version){
     return(
         <>
             <div>
@@ -6,4 +6,9 @@ export default function VersionTile(){
             </div>
         </>
     )
+}
+
+export interface version{
+    version: string,
+    is_current: boolean,
 }
