@@ -29,7 +29,7 @@ fn main() {
 
   tauri::Builder::default()
     .system_tray(tray)
-    .invoke_handler(tauri::generate_handler![execute_command])
+    .invoke_handler(tauri::generate_handler![execute_command, get_node_version])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
