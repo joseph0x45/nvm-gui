@@ -6,5 +6,9 @@ export const versions = [
     {
         version:"16.16.0",
         is_current: true
+    },
+    {
+        version:"16.18.0",
+        is_current: true
     }
 ]
