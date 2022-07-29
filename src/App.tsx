@@ -11,13 +11,17 @@ function App() {
     let bruh = await invoke('execute_command', { command: 'nvm' })
     console.log(bruh);
   }
-  
+  async function getCurrentVersion(){
+    let current = await invoke('get_node_version')
+    console.log(current);
+    
+  }
   return (
     <div className=''  >
       <Welcome />
       <hr className=' border-2' />
       <div className=' flex justify-center'>
-        <button>Get current version</button>
+        <button onClick={getCurrentVersion}>Get current version</button>
       </div>
       {
         versions.map(
