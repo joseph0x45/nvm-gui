@@ -8,8 +8,17 @@ use tauri::SystemTray;
 #[tauri::command]
 fn execute_command(command: &str) -> String {
   let output = Command::new(command)
-    .arg("use")
-    .arg("16.16.0")
+    .arg("list")
+    .arg("")
+    .output()
+    .expect("failed to execute process");
+  return String::from_utf8_lossy(&output.stdout).to_string();
+}
+
+#[tauri::command]
+fn get_node_version() -> String {
+  let output = Command::new("node")
+    .arg("--version")
     .output()
     .expect("failed to execute process");
   return String::from_utf8_lossy(&output.stdout).to_string();
