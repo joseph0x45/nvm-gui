@@ -11,6 +11,13 @@
     "version": "0.1.0"
   },
   "tauri": {
+    "cli":{
+      "description": "nvm-gui is a simple GUI for nvm",
+      "longDescription": "nvm-gui is a simple GUI for nvm",
+      "beforeHelp": "nvm-gui is a simple GUI for nvm",
+      "afterHelp": "nvm-gui is a simple GUI for nvm",
+      "args": []
+    },
     "systemTray":{
       "iconPath": "icons/icon.png",
       "iconAsTemplate": true
@@ -61,7 +68,7 @@
       {
         "fullscreen": false,
         "height": 300,
-        "resizable": true,
+        "resizable": false,
         "title": "NVM GUI",
         "width": 400
       }
