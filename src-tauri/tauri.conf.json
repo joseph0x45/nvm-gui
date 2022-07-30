@@ -16,7 +16,11 @@
       "longDescription": "nvm-gui is a simple GUI for nvm",
       "beforeHelp": "nvm-gui is a simple GUI for nvm",
       "afterHelp": "nvm-gui is a simple GUI for nvm",
-      "args": []
+      "args": [],
+      "subcommands": {
+        "subcommand-name":{
+        }
+      }
     },
     "systemTray":{
       "iconPath": "icons/icon.png",
