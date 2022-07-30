@@ -3,6 +3,7 @@ import Welcome from './components/welcome'
 import { invoke } from '@tauri-apps/api/tauri'
 import VersionTile from './components/version_tile'
 import { versions } from './__mocks__/versions'
+import manager from './utils/manager'
 
 function App() {
   const [count, setCount] = useState(0)

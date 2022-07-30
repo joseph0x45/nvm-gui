@@ -1,11 +1,21 @@
+import { useState } from "react"
+import manager from "../utils/manager"
+
 export default function VersionTile(props: version){
+    const { is_current, version } = props
+    const [is_selected, setIsSelected] = useState(false)
+    async function onClick(){
+        let result = await manager.change_version(version)
+        console.log(result);
+        
+    }
     return(
         <>
             <div className=" flex space-x-2 px-4">
                 <div>
-                    <input type="checkbox" name="is_current" id="is_crnt" checked={props.is_current} />
+                    <input type="radio" name="version_tile" id="vst" onClick={onClick} />
                 </div>
-                <div>Version {props.version}</div>
+                <div>Version {version}</div>
             </div>
         </>
     )
