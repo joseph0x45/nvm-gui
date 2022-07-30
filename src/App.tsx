@@ -8,11 +8,14 @@ function App() {
   const [count, setCount] = useState(0)
   const [currentVersion, setCurrentVersion] = useState('')
   async function run(){
-    let bruh = await invoke('execute_command', { command: 'nvm' })
+    //let bruh = await invoke('execute_command', { command: 'nvm' })
+    let bruh = await invoke('change_version') as string
     console.log(bruh);
+    setCurrentVersion(bruh)
   }
   async function getCurrentVersion(){
-    let current = await invoke('get_node_version')
+    let current = await invoke('get_node_version') as string
+    setCurrentVersion(current)
     console.log(current);
     
   }
@@ -21,7 +24,10 @@ function App() {
       <Welcome />
       <hr className=' border-2' />
       <div className=' flex justify-center'>
-        <button onClick={getCurrentVersion}>Get current version</button>
+        <button onClick={run}>Get current version</button>
+        {
+          currentVersion && <p>{currentVersion}</p>
+        }
       </div>
       {
         versions.map(
