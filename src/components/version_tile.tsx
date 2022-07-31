@@ -1,24 +1,25 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import manager from "../utils/manager"
 
 export default function VersionTile(props: version){
     const { is_current, version } = props
     const [is_selected, setIsSelected] = useState(false)
-    let duh = false
+    const ref = useRef<HTMLInputElement>(null)
+    
     async function onClick(){
         let result = await manager.change_version(version)
-        console.log(result);
-        
+        console.log('result');    
     }
+
     function is_ckecked() {
-        alert("Version already in use")
-        
+        alert("Version already in use")        
     }
+    
     return(
         <>
             <div className=" flex space-x-2 px-4">
                 <div>
-                    <input type="radio" name="version_tile" id="vst" onClick={duh? onClick: is_ckecked } />
+                    <input type="radio" name="version_tile" id="vst" />
                 </div>
                 <div>Version {version}</div>
             </div>
