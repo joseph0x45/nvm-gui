@@ -21,7 +21,7 @@ export default function VersionTile(props: version){
                 <div>
                     <input type="radio" name="version_tile" id="vst" />
                 </div>
-                <div>Version {version}</div>
+                <div> {version}</div>
             </div>
         </>
     )
