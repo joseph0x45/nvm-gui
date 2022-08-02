@@ -6,10 +6,11 @@ import { versions } from './__mocks__/versions'
 import { useEffect } from 'react'
 
 function App() {
-  const [currentVersion, setCurrentVersion] = useState('')
+  const [currentVersion, setCurrentVersion] = useState("")
+  const [all_versions, setVersions] = useState("")
   async function change_version() {
-    let bruh = await invoke('change_version') as string
-    setCurrentVersion(bruh)
+    let result = await invoke('change_version') as string
+    setCurrentVersion(result)
   }
   async function getCurrentVersion() {
     let current = await invoke('get_node_version') as string
