@@ -20,8 +20,18 @@ function App() {
 
   useEffect(
     ()=>{
-      let all_versions =  invoke('get_all_versions') as any
-      console.log(all_versions);
+      let all_versions =  new Promise(
+        async (resolve, reject) => {
+          let versions = await invoke('get_all_versions') as string
+          resolve(versions)
+          reject('error')
+        }
+      )
+      all_versions.then(
+        (result) => {
+          console.log(result);
+        }
+      )
     },
     []
   )
