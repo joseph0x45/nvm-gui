@@ -15,24 +15,18 @@ function App() {
   async function getCurrentVersion() {
     let current = await invoke('get_node_version') as string
     setCurrentVersion(current)
-    console.log(current);
 
   }
 
   useEffect(
     ()=>{
-      let all_versions =  new Promise(
-        async (resolve, reject) => {
-          let versions = await invoke('get_all_versions') as string
-          resolve(versions)
-          reject('error')
-        }
-      )
-      all_versions.then(
-        (result) => {
-          console.log(result);
-        }
-      )
+      const fetch_versions =async () => {
+        const result = await invoke('get_all_versions') as string
+        return result
+      }
+      fetch_versions().then(result => {
+        setVersions(result)
+      })
     },
     []
   )
