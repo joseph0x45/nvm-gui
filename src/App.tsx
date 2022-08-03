@@ -36,7 +36,7 @@ function App() {
     <>
       <div className=''  >
         <Welcome />
-        <span className='h-10 whitespace-pre-line'>
+        <span className='whitespace-pre-line'>
           { all_versions }
         </span>
         <hr className=' border-2' />
