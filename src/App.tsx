@@ -6,6 +6,7 @@ import { versions } from './__mocks__/versions'
 import { useEffect } from 'react'
 
 function App() {
+  const buh = "okok \n okok"
   const [currentVersion, setCurrentVersion] = useState("")
   const [all_versions, setVersions] = useState("")
   async function change_version() {
@@ -35,6 +36,9 @@ function App() {
     <>
       <div className=''  >
         <Welcome />
+        <span className='h-10 whitespace-pre-line'>
+          { all_versions }
+        </span>
         <hr className=' border-2' />
         <div className=' flex justify-center'>
           <button onClick={change_version}>Get current version</button>
