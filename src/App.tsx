@@ -6,7 +6,6 @@ import { versions } from './__mocks__/versions'
 import { useEffect } from 'react'
 
 function App() {
-  const buh = "okok \n okok"
   const [currentVersion, setCurrentVersion] = useState("")
   const [all_versions, setVersions] = useState("")
   async function change_version() {
