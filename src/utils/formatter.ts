@@ -4,5 +4,5 @@ export default function (text: string): Array<string> {
     const versions = [] = raw_input.filter(
         v=> !garbage.includes(v)
     )
-    return versions;
+    return versions
 }
