@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <div className=''  >
+      <div  >
         <Welcome />
         <span className='whitespace-pre-line'>
           { all_versions }

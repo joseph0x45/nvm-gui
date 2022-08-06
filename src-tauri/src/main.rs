@@ -4,6 +4,7 @@
 )]
 use std::process::Command;
 use tauri::SystemTray;
+use tauri::{ Manager};
 
 #[tauri::command]
 fn get_all_versions() -> String {
@@ -35,11 +36,15 @@ fn change_version(version: &str)-> String {
 
 fn main() {
   let tray = SystemTray::new();
-
+  
   tauri::Builder::default()
-    .system_tray(tray)
-    .invoke_handler(tauri::generate_handler![get_all_versions, get_node_version, change_version])
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
+  .setup(|app| {
+    let main_window = app.get_window("main").unwrap();
+    Ok(())
+    })
+  .system_tray(tray)
+  .invoke_handler(tauri::generate_handler![get_all_versions, get_node_version, change_version])
+  .run(tauri::generate_context!())
+  .expect("error while running tauri application");
 }
 

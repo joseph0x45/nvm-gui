@@ -63,7 +63,8 @@
         "height": 300,
         "resizable": false,
         "title": "NVM GUI",
-        "width": 400
+        "width": 400,
+        "transparent": true
       }
     ]
   }
