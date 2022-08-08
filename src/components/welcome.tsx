@@ -4,9 +4,6 @@ export default function Welcome(){
             <div className=" text-center">
                 NVM-GUI
             </div>
-            <div className=" text-center">
-                A graphical interface for NVM
-            </div>
         </>
     )
 }

@@ -6,8 +6,17 @@ import VersionTile from './components/version_tile'
 import { useEffect } from 'react'
 const current = '15'
 const versions = [
+  '15',
   '14',
-  '13'
+  '13',
+  '12',
+  '11',
+  '10',
+  '9',
+  '8',
+  '7',
+  '6',
+  '5',
 ]
 
 
@@ -39,13 +48,18 @@ function App() {
   )
 
   return (
-    <>
+    <div>
       <Welcome/>
-      <div className=' overflow-y-scroll'>
-
+      <div className=' overflow-y-scroll pt-3 space-y-3 h-40 border-2'>
+        {
+          versions.map(
+            v=>{
+              return <VersionTile version={v} is_current={v == currentVersion} />
+            }
+          )
+        }
       </div>
-      <VersionTile version='15' is_current />
-    </>
+    </div>
   )
 }
 

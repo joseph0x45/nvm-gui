@@ -19,7 +19,7 @@ export default function VersionTile(props: version){
         <>
             <div className=" bg-red-300 mx-6 rounded-lg flex space-x-2 px-4">
                 <div>
-                    <input type="radio" name="version_tile" id="vst" />
+                    <input type="radio" checked={props.is_current} name="version_tile" id="vst" />
                 </div>
                 <div> {version}</div>
             </div>
