@@ -2,8 +2,15 @@ import { useState } from 'react'
 import Welcome from './components/welcome'
 import { invoke } from '@tauri-apps/api/tauri'
 import VersionTile from './components/version_tile'
-import { versions } from './__mocks__/versions'
+// import { versions } from './__mocks__/versions'
 import { useEffect } from 'react'
+const current = '15'
+const versions = [
+  '14',
+  '13'
+]
+
+
 
 function App() {
   const [currentVersion, setCurrentVersion] = useState("")
@@ -33,8 +40,9 @@ function App() {
 
   return (
     <>
-      <div className=' flex justify-center items-center '>
-        Loading
+      <Welcome/>
+      <div className=' overflow-y-scroll'>
+
       </div>
       <VersionTile version='15' is_current />
     </>
