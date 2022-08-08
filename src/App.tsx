@@ -33,28 +33,10 @@ function App() {
 
   return (
     <>
-      <div  >
-        <Welcome />
-        <span className='whitespace-pre-line'>
-          { all_versions }
-        </span>
-        <hr className=' border-2' />
-        <div className=' flex justify-center'>
-          <button onClick={change_version}>Get current version</button>
-          {
-            currentVersion && <p>{currentVersion}</p>
-          }
-        </div>
-        {
-          versions.map(
-            version => {
-              return (
-                <VersionTile is_current={version.is_current} version={version.version} />
-              )
-            }
-          )
-        }
+      <div className=' flex justify-center items-center '>
+        Loading
       </div>
+      <VersionTile version='15' is_current />
     </>
   )
 }
