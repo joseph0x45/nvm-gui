@@ -22,7 +22,7 @@ export const versionSlice = createSlice({
   }
 })
 
-export const {  } = versionSlice.actions
+export const { change } = versionSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state
