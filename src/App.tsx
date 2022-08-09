@@ -24,7 +24,7 @@ const versions = [
 
 function App() {
   const [currentVersion, setCurrentVersion] = useState("")
-  const [all_versions, setVersions] = useState("")
+  const [all_versions, setVersions] = useState([""])
   async function change_version() {
     let result = await invoke('change_version') as string
     setCurrentVersion(result)
@@ -44,7 +44,7 @@ function App() {
       fetch_versions().then(result => {
         const versionSet = formatter(result)
         console.log(versionSet);
-        setVersions(result)
+        setVersions(versionSet)
       })
     },
     []
@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div>
-      <Welcome/>
+      <Welcome versions_count={all_versions.length.toString()} />
       <div className=' overflow-y-scroll pt-3 space-y-3 h-40 border-2'>
         {
           versions.map(

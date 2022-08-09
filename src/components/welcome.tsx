@@ -1,8 +1,8 @@
-export default function Welcome(){
+export default function Welcome(props:{ "versions_count":string }){
     return(
         <>
             <div className=" text-center">
-                NVM-GUI
+                {props.versions_count} versions found
             </div>
         </>
     )
