@@ -17,8 +17,9 @@ function App() {
   async function getCurrentVersion() {
     let current = await invoke('get_node_version') as string
     current = current.replace(/(\r\n|\n|\r)/gm, "")
-    dispatch(change(currentVersion))
-
+    dispatch(change(current))
+    setCurrentVersion(versionState.value)
+    
   }
 
   useEffect(
@@ -30,7 +31,6 @@ function App() {
       }
       fetch_versions().then(result => {
         const versionSet = formatter(result)
-        console.log(versionSet);
         setVersions(versionSet)
       })
     },
@@ -45,7 +45,7 @@ function App() {
           all_versions.map(
             v=>{
               
-              return <VersionTile version={v} is_current={('v'+v===currentVersion)} test={versionState.value} />
+              return <VersionTile version={v} is_current={('v'+v===currentVersion)}  />
             }
           )
         }

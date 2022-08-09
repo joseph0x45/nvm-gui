@@ -4,8 +4,7 @@ import manager from "../utils/manager"
 export default function VersionTile(
     props:{
         "version": string,
-        "is_current": boolean,
-        "test": string
+        "is_current": boolean
     }
 ){
     const [is_current, setIsCurrent] = useState(props.is_current)
@@ -15,14 +14,14 @@ export default function VersionTile(
             message("You are already on this version")
             return
         }
-        //let result = await manager.change_version(props.version)
+        let result = await manager.change_version(props.version)
         setIsCurrent(!props.is_current)  
     }
     
     return(
         <>
             <div onClick={change_version} className=" bg-red-300 mx-6 rounded-lg flex space-x-2 px-4 hover:bg-green-400">
-                <div >v{props.version}  { is_current?"*":"" } '{props.test}' </div>
+                <div >v{props.version}  { is_current?"*":"" }  </div>
             </div>
         </>
     )
