@@ -4,7 +4,6 @@
 )]
 use std::process::Command;
 use tauri::SystemTray;
-use tauri::{ Manager};
 
 #[tauri::command]
 fn get_all_versions() -> String {
