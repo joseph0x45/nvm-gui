@@ -27,7 +27,3 @@ export default function VersionTile(
     )
 }
 
-export interface version{
-    version: string,
-    is_current: boolean,
-}
