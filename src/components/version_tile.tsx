@@ -21,7 +21,7 @@ export default function VersionTile(
     return(
         <>
             <div onClick={change_version} className=" bg-red-300 mx-6 rounded-lg flex space-x-2 px-4 hover:bg-green-400">
-                <div >{props.version}  { props.is_current?"*":"" } </div>
+                <div >v{props.version}  { props.is_current?"*":"" } </div>
             </div>
         </>
     )
