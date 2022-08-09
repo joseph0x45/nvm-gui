@@ -4,6 +4,7 @@ import { invoke } from '@tauri-apps/api/tauri'
 import VersionTile from './components/version_tile'
 // import { versions } from './__mocks__/versions'
 import { useEffect } from 'react'
+import formatter from './utils/formatter'
 const current = '15'
 const versions = [
   '15',
@@ -41,6 +42,8 @@ function App() {
         return result
       }
       fetch_versions().then(result => {
+        const versionSet = formatter(result)
+        console.log(versionSet);
         setVersions(result)
       })
     },
