@@ -8,6 +8,7 @@ export default function VersionTile(
         "is_current": boolean
     }
 ){
+    const [is_current, setIsCurrent] = useState(props.is_current)
     
     async function change_version(){
         if (props.is_current){
@@ -15,7 +16,7 @@ export default function VersionTile(
             return
         }
         let result = await manager.change_version(props.version)
-        console.log(result);    
+        setIsCurrent(!props.is_current)  
     }
     
     return(
