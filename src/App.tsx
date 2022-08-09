@@ -12,15 +12,18 @@ function App() {
   const versionState = useAppSelector(state => state.version)
   const dispatch = useAppDispatch()
   
-  const [currentVersion, setCurrentVersion] = useState("")
+  const [currentVersion, setCurrentVersion] = useState(versionState.value)
   const [all_versions, setVersions] = useState([""])
   async function getCurrentVersion() {
     let current = await invoke('get_node_version') as string
     current = current.replace(/(\r\n|\n|\r)/gm, "")
-    setCurrentVersion(current)
     dispatch(change(currentVersion))
     console.log(currentVersion, 'ee');
 
+  }
+
+  function test(){
+    dispatch(change('bruuh'))
   }
 
   useEffect(
@@ -42,12 +45,15 @@ function App() {
   return (
     <div>
       <Welcome versions_count={all_versions.length.toString()} />
+      <div onClick={test} >
+        Muerteee
+      </div>
       <div className=' overflow-y-scroll pt-3 space-y-3 h-40 border-2'>
         {
           all_versions.map(
             v=>{
               
-              return <VersionTile version={v} is_current={('v'+v===currentVersion)} />
+              return <VersionTile version={v} is_current={('v'+v===currentVersion)} test={versionState.value} />
             }
           )
         }
