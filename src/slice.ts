@@ -3,12 +3,12 @@ import type { RootState } from './store'
 
 // Define a type for the slice state
 interface VersionState {
-  value: boolean
+  value: string
 }
 
 // Define the initial state using that type
 const initialState: VersionState = {
-  value: false
+  value: ''
 }
 
 export const versionSlice = createSlice({
@@ -16,8 +16,8 @@ export const versionSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    change: state=>{
-        state.value = !state.value
+    change: (state, action: PayloadAction<string>)=>{
+        state.value = action.payload
     }
   }
 })

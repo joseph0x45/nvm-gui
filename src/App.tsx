@@ -4,16 +4,22 @@ import { invoke } from '@tauri-apps/api/tauri'
 import VersionTile from './components/version_tile'
 import { useEffect } from 'react'
 import formatter from './utils/formatter'
+import { useAppDispatch, useAppSelector } from './hooks'
+import { change } from './slice'
 
 
 function App() {
+  const versionState = useAppSelector(state => state.version)
+  const dispatch = useAppDispatch()
+  
   const [currentVersion, setCurrentVersion] = useState("")
   const [all_versions, setVersions] = useState([""])
   async function getCurrentVersion() {
     let current = await invoke('get_node_version') as string
     current = current.replace(/(\r\n|\n|\r)/gm, "")
     setCurrentVersion(current)
-    console.log(currentVersion);
+    dispatch(change(currentVersion))
+    console.log(currentVersion, 'ee');
 
   }
 
