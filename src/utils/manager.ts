@@ -1,4 +1,7 @@
 import { invoke } from "@tauri-apps/api";
+import { useAppDispatch } from '../hooks'
+import { change } from "../slice";
+const dispatch = useAppDispatch()
 
 export async function get_current_version() : Promise<string> {
     let current = await invoke('get_node_version') as string
@@ -12,6 +15,7 @@ export async function get_versions_list(): Promise<string> {
 
 export async function change_version( version: string ) : Promise<string> {
     let change_result = await invoke('change_version', {version: version}) as string
+    dispatch(change(version))
     return change_result
 }
 

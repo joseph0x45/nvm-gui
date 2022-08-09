@@ -18,12 +18,7 @@ function App() {
     let current = await invoke('get_node_version') as string
     current = current.replace(/(\r\n|\n|\r)/gm, "")
     dispatch(change(currentVersion))
-    console.log(currentVersion, 'ee');
 
-  }
-
-  function test(){
-    dispatch(change('bruuh'))
   }
 
   useEffect(
@@ -45,9 +40,6 @@ function App() {
   return (
     <div>
       <Welcome versions_count={all_versions.length.toString()} />
-      <div onClick={test} >
-        Muerteee
-      </div>
       <div className=' overflow-y-scroll pt-3 space-y-3 h-40 border-2'>
         {
           all_versions.map(
