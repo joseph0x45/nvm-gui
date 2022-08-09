@@ -1,6 +1,6 @@
 # NVM-GUI
 
-This little app is for "lazy" developers, especially those using Windows, that don't want to open an admin terminal everytime they want to switch between nodejs versions.
+This little app is for "lazy" developers, especially those using Windows, that don't want to open a terminal in admin mode everytime they want to switch from a nodejs version to another.
 
 It's built on top of [nvm](https://github.com/coreybutler/nvm-windows) using :
 
