@@ -43,9 +43,8 @@ function App() {
       <div className=' overflow-y-scroll pt-3 space-y-3 h-40 border-2'>
         {
           all_versions.map(
-            v=>{
-              
-              return <VersionTile version={v} is_current={('v'+v===currentVersion)}  />
+            v=>{            
+              return <VersionTile version={v} is_current={('v'+v===versionState.value)}  />
             }
           )
         }
