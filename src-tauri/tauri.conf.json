@@ -16,7 +16,10 @@
       "iconAsTemplate": true
     },
     "allowlist": {
-      "all": true
+      "all": true,
+      "dialog": {
+        "all": true
+      }
     },
     "bundle": {
       "active": true,
