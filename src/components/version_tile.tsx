@@ -1,21 +1,23 @@
 import { useState } from "react"
 import { message } from '@tauri-apps/api/dialog';
 import manager from "../utils/manager"
+import { useAppDispatch, useAppSelector } from '../hooks'
+import { change } from '../slice'
+
 export default function VersionTile(
     props:{
-        "version": string,
-        "is_current": boolean
+        "version": string
     }
 ){
-    const [is_current, setIsCurrent] = useState(props.is_current)
-    
+    const [is_current, setIsCurrent] = useState('')
+    const dispatch = useAppDispatch()
     async function change_version(){
-        if (props.is_current){
+        if (props){
             message("You are already on this version")
             return
         }
         let result = await manager.change_version(props.version)
-        setIsCurrent(!props.is_current)  
+        dispatch(change('v14.17.3'))
     }
     
     return(

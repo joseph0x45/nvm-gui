@@ -44,7 +44,7 @@ function App() {
         {
           all_versions.map(
             v=>{            
-              return <VersionTile version={v} is_current={('v'+v===versionState.value)}  />
+              return <VersionTile version={v}  />
             }
           )
         }
