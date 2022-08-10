@@ -49,7 +49,6 @@ function App() {
           )
         }
       </div>
-      <p>{versionState.value}</p>
     </div>
   )
 }
