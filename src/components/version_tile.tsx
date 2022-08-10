@@ -16,7 +16,7 @@ export default function VersionTile(
             message("You are already on this version")
             return
         }
-        let result = await manager.change_version(props.version)
+        //let result = await manager.change_version(props.version)
         dispatch(change(props.version))
     }
     
