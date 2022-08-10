@@ -12,12 +12,12 @@ export default function VersionTile(
     const versionState = useAppSelector(state => state.version)
     const dispatch = useAppDispatch()
     async function change_version(){
-        if (props.version==versionState.value){
+        if ('v'+props.version==versionState.value){
             message("You are already on this version")
             return
         }
         //let result = await manager.change_version(props.version)
-        dispatch(change(props.version))
+        dispatch(change('v'+props.version))
     }
     
     return(
