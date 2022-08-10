@@ -11,21 +11,20 @@ import { change } from './slice'
 function App() {
   const versionState = useAppSelector(state => state.version)
   const dispatch = useAppDispatch()
-  
-  const [currentVersion, setCurrentVersion] = useState(versionState.value)
+
+
   const [all_versions, setVersions] = useState([""])
   async function getCurrentVersion() {
     let current = await invoke('get_node_version') as string
     current = current.replace(/(\r\n|\n|\r)/gm, "")
     dispatch(change(current))
-    setCurrentVersion(versionState.value)
-    
+
   }
 
   useEffect(
-    ()=>{
+    () => {
       getCurrentVersion()
-      const fetch_versions =async () => {
+      const fetch_versions = async () => {
         const result = await invoke('get_all_versions') as string
         return result
       }
@@ -43,8 +42,8 @@ function App() {
       <div className=' overflow-y-scroll pt-3 space-y-3 h-40 border-2'>
         {
           all_versions.map(
-            v=>{            
-              return <VersionTile version={v}  />
+            v => {
+              return <VersionTile version={v} />
             }
           )
         }
