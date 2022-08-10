@@ -18,7 +18,7 @@ function App() {
     let current = await invoke('get_node_version') as string
     current = current.replace(/(\r\n|\n|\r)/gm, "")
     dispatch(change(current))
-
+    
   }
 
   useEffect(
