@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { message } from '@tauri-apps/api/dialog';
 import manager from "../utils/manager"
 import { useAppDispatch, useAppSelector } from '../hooks'
